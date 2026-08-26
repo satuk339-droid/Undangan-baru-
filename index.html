@@ -182,11 +182,15 @@ overflow:hidden;border:4px solid #e3c875;box-shadow:0 0 0 8px #e3c87522,0 15px 4
 <footer><h3>Jazakumullahu Khairan</h3><p>Atas kehadiran dan doa restu Bapak/Ibu/Saudara/i</p><div class="arab">محمد غياث رزيق سالك</div></footer>
 
 <script>
-/* =====================================================
-   ✏️ EDIT NAMA TAMU DI SINI SAJA
-   Contoh: "Bapak Ahmad & Keluarga"
-   ===================================================== */
-const NAMA_TAMU = "om budy terhormat";
+/* ========================/* 
+
+   OTOMATIS AMBIL NAMA DARI LINK ?to=
+
+*/
+
+const urlParams = new URLSearchParams(window.location.search);
+const NAMA_TAMU = urlParams.get('to') || "Tamu Undangan";
+document.querySelectorAll(".nama-tamu").forEach(el => el.textContent = NAMA_TAMU + " terhormat");
 document.querySelectorAll(".nama-tamu").forEach(el => el.textContent = NAMA_TAMU);
 
 const cover=document.getElementById('cover'),songEl=document.getElementById('song'),mb=document.getElementById('mb');
